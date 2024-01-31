@@ -1,11 +1,31 @@
 <div class="main-container">
+  <p>Please provide a date and temperature in [°C]</p>
   <form (submit)="handleSubmit($event)">
-    <dx-form [colCount]="2" labelLocation="top">
-      <dxi-item dataField="Date"></dxi-item>
-      <dxi-item dataField="Temperature"></dxi-item>
+    <dx-form [colCount]="2" labelLocation="top" [formData]="temperatures">
+      <dxi-item dataField="date"> </dxi-item>
+
+      <dxi-item dataField="temperature"></dxi-item>
+      <dxi-validation-rule type="numeric"> </dxi-validation-rule>
+      <dxi-item itemType="empty" [colSpan]="1"> </dxi-item>
       <dxi-item itemType="button" [buttonOptions]="submitButtonOptions">
       </dxi-item>
     </dx-form>
   </form>
-  <p>{{ successMessage }}</p>
+
+  <p class="success-message">{{ successMessage }}</p>
+  <dx-chart [dataSource]="chartedData">
+    <dxi-series
+      argumentField="date"
+      valueField="temperature"
+      type="line"
+    ></dxi-series>
+
+    <dxo-argument-axis argumentType="datetime">
+      <dxo-label format="shortDate"></dxo-label>
+    </dxo-argument-axis>
+
+    <dxi-value-axis>
+      <dxo-label format="fixedPoint"></dxo-label>
+    </dxi-value-axis>
+  </dx-chart>
 </div>
