@@ -1,0 +1,11 @@
+<div class="main-container">
+  <form (submit)="handleSubmit($event)">
+    <dx-form [colCount]="2" labelLocation="top">
+      <dxi-item dataField="Date"></dxi-item>
+      <dxi-item dataField="Temperature"></dxi-item>
+      <dxi-item itemType="button" [buttonOptions]="submitButtonOptions">
+      </dxi-item>
+    </dx-form>
+  </form>
+  <p>{{ successMessage }}</p>
+</div>
