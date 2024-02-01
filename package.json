@@ -21,6 +21,7 @@
     "devextreme": "23.2.3",
     "devextreme-angular": "23.2.3",
     "devextreme-schematics": "^1.6.5",
+    "json-server": "^1.0.0-alpha.23",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

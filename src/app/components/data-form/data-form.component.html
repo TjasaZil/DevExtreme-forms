@@ -14,7 +14,7 @@
 
   <p class="success-message">{{ successMessage }}</p>
 
-  <dx-chart [dataSource]="chartedData" class="chart">
+  <dx-chart [dataSource]="chartData" class="chart">
     <dxo-title text="Average temperatures per day"> </dxo-title>
     <dxo-legend [visible]="false"></dxo-legend>
 
@@ -24,8 +24,13 @@
       <dxo-title text="Date"></dxo-title>
     </dxo-argument-axis>
 
-    <dxi-series argumentField="date" valueField="temperature" type="spline">
-      <dxo-value-error-bar type="stdError" color="gray"> </dxo-value-error-bar>
+    <dxi-series
+      color="#79cac4"
+      argumentField="date"
+      valueField="temperature"
+      type="spline"
+    >
+      <dxo-label [visible]="true" backgroundColor="#c18e92"></dxo-label>
     </dxi-series>
   </dx-chart>
 </div>

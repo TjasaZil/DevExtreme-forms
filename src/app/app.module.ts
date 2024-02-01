@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { DxFormModule } from 'devextreme-angular';
 import { DxDateBoxModule } from 'devextreme-angular';
 import { DxChartModule } from 'devextreme-angular';
@@ -15,6 +16,7 @@ import { DataFormComponent } from './components/data-form/data-form.component';
     DxFormModule,
     DxChartModule,
     DxDateBoxModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
