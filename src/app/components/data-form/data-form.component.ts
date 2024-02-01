@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { Temperatures } from 'src/app/models/temperatures';
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-data-form',
   templateUrl: './data-form.component.html',
@@ -8,17 +10,44 @@ import { DataService } from 'src/app/services/data.service';
 export class DataFormComponent implements OnInit {
   successMessage: string = '';
   chartData?: any;
-  dataArr?: [];
+  dataArr?: Temperatures[] = [];
 
   constructor(private data: DataService) {}
   ngOnInit() {
     this.displayTemperatures();
+    this.dataArr = [];
   }
 
+  formatDateForSubmission(date: Date): string {
+    return formatDate(date, 'MMM d', 'en-US');
+  }
   displayTemperatures() {
-    this.data.getTemperatures().subscribe((data) => {
-      this.chartData = data;
-    });
+    this.data.getTemperatures().subscribe(
+      (response) => {
+        this.chartData = response;
+      },
+      (error) => {
+        alert('Unable to get the data');
+        console.log(error);
+      }
+    );
+  }
+
+  addTemperatures() {
+    const formattedDate = this.formatDateForSubmission(this.temperatures.date);
+    const temperatureData = {
+      ...this.temperatures,
+      date: formattedDate, // Use the formatted date
+    };
+    this.data.addTemperature(temperatureData).subscribe(
+      (response) => {
+        this.dataArr?.push(response);
+      },
+      (error) => {
+        alert('Unable to add new data!');
+        console.log(error);
+      }
+    );
   }
 
   temperatures = {

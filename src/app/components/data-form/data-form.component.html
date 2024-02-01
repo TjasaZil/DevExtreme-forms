@@ -1,9 +1,8 @@
 <div class="main-container">
   <p>Please provide a date and temperature in [°C]</p>
-  <form (submit)="handleSubmit($event)">
+  <form (submit)="addTemperatures()">
     <dx-form [colCount]="2" labelLocation="top" [formData]="temperatures">
       <dxi-item dataField="date"> </dxi-item>
-
       <dxi-item dataField="temperature"></dxi-item>
       <dxi-validation-rule type="numeric"> </dxi-validation-rule>
       <dxi-item itemType="empty" [colSpan]="1"> </dxi-item>
