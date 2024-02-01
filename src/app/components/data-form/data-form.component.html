@@ -2,7 +2,7 @@
   <p>Please provide a date and temperature in [°C]</p>
   <form (submit)="addTemperatures()">
     <dx-form [colCount]="2" labelLocation="top" [formData]="temperatures">
-      <dxi-item dataField="date"> </dxi-item>
+      <dxi-item dataField="date"></dxi-item>
       <dxi-item dataField="temperature"></dxi-item>
       <dxi-validation-rule type="numeric"> </dxi-validation-rule>
       <dxi-item itemType="empty" [colSpan]="1"> </dxi-item>
@@ -10,8 +10,6 @@
       </dxi-item>
     </dx-form>
   </form>
-
-  <p class="success-message">{{ successMessage }}</p>
 
   <dx-chart [dataSource]="chartData" class="chart">
     <dxo-title text="Average temperatures per day"> </dxo-title>

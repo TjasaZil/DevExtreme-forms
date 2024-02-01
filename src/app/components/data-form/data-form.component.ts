@@ -8,9 +8,12 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./data-form.component.scss'],
 })
 export class DataFormComponent implements OnInit {
-  successMessage: string = '';
   chartData?: any;
   dataArr?: Temperatures[] = [];
+  temperatures = {
+    date: new Date(),
+    temperature: 0,
+  };
 
   constructor(private data: DataService) {}
   ngOnInit() {
@@ -21,6 +24,7 @@ export class DataFormComponent implements OnInit {
   formatDateForSubmission(date: Date): string {
     return formatDate(date, 'MMM d', 'en-US');
   }
+
   displayTemperatures() {
     this.data.getTemperatures().subscribe(
       (response) => {
@@ -35,42 +39,42 @@ export class DataFormComponent implements OnInit {
 
   addTemperatures() {
     const formattedDate = this.formatDateForSubmission(this.temperatures.date);
-    const temperatureData = {
-      ...this.temperatures,
-      date: formattedDate, // Use the formatted date
-    };
-    this.data.addTemperature(temperatureData).subscribe(
-      (response) => {
-        this.dataArr?.push(response);
+
+    this.data.getTemperatures().subscribe(
+      (allTemperatures: Temperatures[]) => {
+        const dateExists = allTemperatures.some(
+          (temp) => formatDate(temp.date, 'MMM d', 'en-US') === formattedDate
+        );
+
+        if (!dateExists) {
+          const temperatureData = {
+            ...this.temperatures,
+            date: formattedDate,
+          };
+
+          this.data.addTemperature(temperatureData).subscribe(
+            (response) => {
+              this.dataArr?.push(response);
+              this.displayTemperatures();
+            },
+            (error) => {
+              alert('Unable to add new data!');
+              console.log(error);
+            }
+          );
+        } else {
+          alert('Temperature for this date already exists.');
+        }
       },
       (error) => {
-        alert('Unable to add new data!');
+        alert('Unable to check existing dates');
         console.log(error);
       }
     );
   }
 
-  temperatures = {
-    date: new Date(),
-    temperature: 0,
-  };
-
   submitButtonOptions = {
     text: 'Submit the Data',
     useSubmitBehavior: true,
-  };
-
-  handleSubmit = (e: any) => {
-    setTimeout(() => {
-      this.successMessage = 'Successfully submitted';
-      //this.chartedData.push(this.temperatures);
-      this.temperatures.temperature = 0;
-      this.temperatures.date = new Date();
-    }, 1000);
-
-    e.preventDefault();
-    setTimeout(() => {
-      this.successMessage = '';
-    }, 3000);
   };
 }
