@@ -28,7 +28,12 @@ export class DataFormComponent implements OnInit {
   displayTemperatures() {
     this.data.getTemperatures().subscribe(
       (response) => {
-        this.chartData = response;
+        //this.chartData = response;
+        this.chartData = response.sort((a: any, b: any) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          return dateA.getTime() - dateB.getTime();
+        });
       },
       (error) => {
         alert('Unable to get the data');

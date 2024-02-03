@@ -128,6 +128,16 @@
       "id": "ea8f",
       "date": "Feb 1",
       "temperature": 0
+    },
+    {
+      "id": "bcda",
+      "date": "Feb 3",
+      "temperature": 0
+    },
+    {
+      "id": "59ca",
+      "date": "Feb 2",
+      "temperature": 1
     }
   ]
 }
