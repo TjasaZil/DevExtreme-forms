@@ -1,0 +1,148 @@
+{
+  "temperatures": [
+    {
+      "date": "Jan 1",
+      "temperature": 10
+    },
+    {
+      "date": "Jan 2",
+      "temperature": 12
+    },
+    {
+      "date": "Jan 3",
+      "temperature": 11
+    },
+    {
+      "date": "Jan 4",
+      "temperature": 13
+    },
+    {
+      "date": "Jan 5",
+      "temperature": 15
+    },
+    {
+      "date": "Jan 6",
+      "temperature": 7
+    },
+    {
+      "date": "Jan 7",
+      "temperature": 2
+    },
+    {
+      "date": "Jan 8",
+      "temperature": -1
+    },
+    {
+      "date": "Jan 9",
+      "temperature": -3
+    },
+    {
+      "date": "Jan 10",
+      "temperature": -5
+    },
+    {
+      "date": "Jan 11",
+      "temperature": -3
+    },
+    {
+      "date": "Jan 12",
+      "temperature": -2
+    },
+    {
+      "date": "Jan 13",
+      "temperature": 1
+    },
+    {
+      "date": "Jan 14",
+      "temperature": 3
+    },
+    {
+      "date": "Jan 15",
+      "temperature": -5
+    },
+    {
+      "date": "Jan 16",
+      "temperature": 5
+    },
+    {
+      "date": "Jan 17",
+      "temperature": 6
+    },
+    {
+      "date": "Jan 18",
+      "temperature": 3
+    },
+    {
+      "date": "Jan 19",
+      "temperature": 6
+    },
+    {
+      "date": "Jan 20",
+      "temperature": 10
+    },
+    {
+      "date": "Jan 21",
+      "temperature": 11
+    },
+    {
+      "date": "Jan 22",
+      "temperature": 9
+    },
+    {
+      "date": "Jan 23",
+      "temperature": 13
+    },
+    {
+      "date": "Jan 24",
+      "temperature": 15
+    },
+    {
+      "date": "Jan 25",
+      "temperature": 10
+    },
+    {
+      "date": "Jan 26",
+      "temperature": 8
+    },
+    {
+      "date": "Jan 27",
+      "temperature": 9
+    },
+    {
+      "date": "Jan 28",
+      "temperature": 5
+    },
+    {
+      "date": "Jan 29",
+      "temperature": 7
+    },
+    {
+      "date": "Jan 30",
+      "temperature": 1
+    },
+    {
+      "date": "Jan 31",
+      "temperature": -1
+    },
+    {
+      "id": "ea8f",
+      "date": "Feb 1",
+      "temperature": 0
+    },
+    {
+      "id": "807e",
+      "date": "Feb 4",
+      "temperature": 0
+    },
+    {
+      "id": "a544",
+      "date": "Feb 2",
+      "temperature": 1
+    },
+    {
+      "id": "91ab",
+      "date": "Feb 3",
+      "temperature": 3
+    }
+  ]
+}

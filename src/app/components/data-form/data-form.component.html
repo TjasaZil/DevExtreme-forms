@@ -1,0 +1,33 @@
+<div class="main-container">
+  <p>Please provide a date and temperature in [°C]</p>
+
+  <form (submit)="addTemperatures()">
+    <dx-form [colCount]="2" labelLocation="top" [formData]="temperatures">
+      <dxi-item dataField="date"></dxi-item>
+      <dxi-item dataField="temperature"></dxi-item>
+      <dxi-validation-rule type="numeric"> </dxi-validation-rule>
+      <dxi-item itemType="empty" [colSpan]="1"> </dxi-item>
+      <dxi-item itemType="button" [buttonOptions]="submitButtonOptions">
+      </dxi-item>
+    </dx-form>
+  </form>
+  <div *ngIf="error$ | async as error" class="error-message">
+    {{ error }}
+  </div>
+  <dx-chart [dataSource]="chartData$ | async" class="chart">
+    <dxo-title text="Average temperatures per day"> </dxo-title>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxi-value-axis title="Temperature [°C]"> </dxi-value-axis>
+    <dxo-argument-axis ArgumentAxisHoverMode="allArgumentPoints">
+      <dxo-title text="Date"></dxo-title>
+    </dxo-argument-axis>
+    <dxi-series
+      color="#79cac4"
+      argumentField="date"
+      valueField="temperature"
+      type="spline"
+    >
+      <dxo-label [visible]="true" backgroundColor="#c18e92"></dxo-label>
+    </dxi-series>
+  </dx-chart>
+</div>
