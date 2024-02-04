@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as TemperaturesActions from './temperature.actions';
 import { Temperatures } from '../../models/temperatures';
+import { sortTemperaturesByDate } from 'src/app/utils/sorting.utilities';
 
 export interface State {
   temperatures: Temperatures[];
@@ -18,7 +19,7 @@ export const temperaturesReducer = createReducer(
     TemperaturesActions.loadTemperaturesSuccess,
     (state, { temperatures }) => ({
       ...state,
-      temperatures,
+      temperatures: sortTemperaturesByDate(temperatures),
       error: null,
     })
   ),
@@ -26,16 +27,11 @@ export const temperaturesReducer = createReducer(
     ...state,
     error,
   })),
-  on(TemperaturesActions.addTemperatureSuccess, (state, { temperature }) => {
-    const updatedTemperatures = [...state.temperatures, temperature].sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-    return {
-      ...state,
-      temperatures: updatedTemperatures,
-      error: null,
-    };
-  }),
+  on(TemperaturesActions.addTemperatureSuccess, (state, { temperature }) => ({
+    ...state,
+    temperatures: sortTemperaturesByDate([...state.temperatures, temperature]),
+    error: null,
+  })),
   on(TemperaturesActions.addTemperatureFailure, (state, { error }) => ({
     ...state,
     error,
