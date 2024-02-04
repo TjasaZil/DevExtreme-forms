@@ -13,6 +13,7 @@ import * as fromTemperaturesSelectors from '../../state/temperatures/temperature
 })
 export class DataFormComponent implements OnInit {
   chartData$: Observable<Temperatures[]>;
+  error$: Observable<string | null>;
   temperatures = {
     date: new Date(),
     temperature: 0,
@@ -25,6 +26,9 @@ export class DataFormComponent implements OnInit {
   constructor(private store: Store) {
     this.chartData$ = this.store.select(
       fromTemperaturesSelectors.selectAllTemperatures
+    );
+    this.error$ = this.store.select(
+      fromTemperaturesSelectors.selectTemperaturesError
     );
   }
 

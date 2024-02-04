@@ -26,11 +26,16 @@ export const temperaturesReducer = createReducer(
     ...state,
     error,
   })),
-  on(TemperaturesActions.addTemperatureSuccess, (state, { temperature }) => ({
-    ...state,
-    temperatures: [...state.temperatures, temperature],
-    error: null,
-  })),
+  on(TemperaturesActions.addTemperatureSuccess, (state, { temperature }) => {
+    const updatedTemperatures = [...state.temperatures, temperature].sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+    return {
+      ...state,
+      temperatures: updatedTemperatures,
+      error: null,
+    };
+  }),
   on(TemperaturesActions.addTemperatureFailure, (state, { error }) => ({
     ...state,
     error,
