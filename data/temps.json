@@ -143,6 +143,21 @@
       "id": "91ab",
       "date": "Feb 3",
       "temperature": 3
+    },
+    {
+      "id": "18cd",
+      "date": "Feb 6",
+      "temperature": 5
+    },
+    {
+      "id": "8485",
+      "date": "Feb 5",
+      "temperature": 2
+    },
+    {
+      "id": "bd18",
+      "date": "Feb 7",
+      "temperature": 3
     }
   ]
 }

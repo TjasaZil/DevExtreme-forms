@@ -60,7 +60,7 @@ This project has multiple branches, as I decided to provide two solutions for th
 
 ## Features
 
-Form for adding the data (temperatures on a specific date) and a chart that displays the data. The user can not input multiple temperatures for the same date and the data on the chart always displays in the chronological order, no matter how the user adds the data via form.
+Form for adding the data (temperatures on a specific date) and a chart that displays the data. The chart is updated with relevant data once the user adds new data with the 'Submit the Data' button. The user can not input multiple temperatures for the same date and the data on the chart always displays in the chronological order, no matter how the user adds the data via form.
 
 # Explaining my NgRx solution
 
