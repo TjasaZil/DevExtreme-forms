@@ -1,5 +1,6 @@
 <div class="main-container">
   <p>Please provide a date and temperature in [°C]</p>
+
   <form (submit)="addTemperatures()">
     <dx-form [colCount]="2" labelLocation="top" [formData]="temperatures">
       <dxi-item dataField="date"></dxi-item>
@@ -11,16 +12,13 @@
     </dx-form>
   </form>
 
-  <dx-chart [dataSource]="chartData" class="chart">
+  <dx-chart [dataSource]="chartData$ | async" class="chart">
     <dxo-title text="Average temperatures per day"> </dxo-title>
     <dxo-legend [visible]="false"></dxo-legend>
-
     <dxi-value-axis title="Temperature [°C]"> </dxi-value-axis>
-
     <dxo-argument-axis ArgumentAxisHoverMode="allArgumentPoints">
       <dxo-title text="Date"></dxo-title>
     </dxo-argument-axis>
-
     <dxi-series
       color="#79cac4"
       argumentField="date"

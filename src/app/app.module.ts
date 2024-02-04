@@ -7,6 +7,10 @@ import { DxChartModule } from 'devextreme-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataFormComponent } from './components/data-form/data-form.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { TemperaturesEffects } from './state/temperatures/temperature.effects';
+import { temperaturesReducer } from '../app/state/temperatures/temperature.reducers';
 
 @NgModule({
   declarations: [AppComponent, DataFormComponent],
@@ -17,6 +21,8 @@ import { DataFormComponent } from './components/data-form/data-form.component';
     DxChartModule,
     DxDateBoxModule,
     HttpClientModule,
+    StoreModule.forRoot({ temperatures: temperaturesReducer }),
+    EffectsModule.forRoot([TemperaturesEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
